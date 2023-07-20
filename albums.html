@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librario</title>
+    <link rel="stylesheet" href="/public/css/style.css?v=4">
+    <link rel="shortcut icon" href="/public/icons/favicon.svg" type="image/x-icon">
+    <script src="/public/js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-flex">
+            <h1>Librario</h1>
+            <div class="input-container"> 
+                <img src="/public/icons/search-icon.svg" alt="">
+                <input class="search-input" id="search-input" type="text" placeholder="Search your albums">
+            </div>
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="menu">
+            <div class="category active">
+                <img src="/public/icons/albums-icon.svg" alt="Albums">
+                <div>Albums</div>
+            </div>
+            <div class="category">
+                <img src="/public/icons/photos-icon.svg" alt="Photos">
+                <div>Photos</div>
+            </div>
+        </div>
+        <main>
+            <div class="main-header">
+                <div class="title">Albums</div>
+                <div tabindex="0" class="create-album">
+                    <img src="/public/icons/plus-icon.svg" alt="Create album">
+                    <div>Create album</div>
+                </div>
+            </div>
+            <div class="albums-view">
+                <div class="album">
+                    <div class="album-thumbnail"></div>
+                    <div class="album-details">
+                        <div class="album-title">Hello</div>
+                        <img class="album-settings" src="/public/icons/three-dots-vertical.svg"></img>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <dialog class="create-album-dialog">
+        <form class="create-album-form" method="post" action="/albums/create">
+            <input type="text" required name="album-name" class="form-album-name" placeholder="Add a title">
+            
+            <div class="loader-line"></div>
+            
+            <div class="directory-selection-container">
+                <div class="directory-selection">
+                    <div>Link directory</div>
+                    <img src="/public/icons/folder-icon.svg" alt="Select a Directory">
+                </div>
+            </div>
+
+            <div class="buttons-row">
+                <button type="submit">Create</button>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+</body>
+</html>

@@ -1,0 +1,428 @@
+:root {
+    --bg-color: rgb(20, 20, 20);
+    --text-color: rgb(255, 255, 255);
+    --blue: rgb(12, 140, 233);
+    --bg-dark: rgb(20, 20, 20);
+    --bg-light: rgb(40, 40, 40);
+    --bg-lighter: rgb(60, 60, 60);
+    --border: 1px solid rgb(255,255,255, 0.3);
+}
+
+* {
+    font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html 
+{
+    height: 100%;
+}
+
+body
+{
+    height: 100%;
+    min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: var(--text-color);
+}
+
+h1 
+{
+    margin: 0;
+    color: white;
+
+    background: rgb(0,155,7);
+    background: linear-gradient(144deg, rgba(0,155,7,1) 0%, rgba(12,140,233,1) 100%);
+    
+    /* background-color: rgb(46, 46, 46); */
+    padding: 10px 10px;
+    
+    border-radius: 10px;
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+body {
+    background-color: var(--bg-light);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-flex
+{
+    height: 72px;
+    padding: 0 10px;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10%;
+    
+    border-bottom: var(--border);
+}
+
+.input-container
+{
+    background-color: var(--bg-light);
+    border: none;
+    flex-grow: 1;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 1px 3px 4px black;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.input-container img 
+{
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+
+.input-container input 
+{
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    font-size: 1.0rem;
+    font-weight: 400;
+    color: var(--text-color);
+    height: 100%;
+}    
+
+.input-container input:focus
+{
+    outline: none;
+}
+.input-container input::placeholder
+{
+    color: gainsboro;
+}
+
+.main-container
+{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: stretch;
+}
+
+.menu 
+{
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    background-color: var(--bg-dark);
+    border-right:  var(--border);
+    width: 256px;
+}
+
+main
+{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.category
+{
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding: 8px 12px 8px 24px;
+    gap: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.category.active
+{
+    background-color: var(--blue);
+}
+
+.category:not(.active):hover
+{
+    background-color: var(--bg-light);
+}
+.category img 
+{
+    height: 24px;
+    width: 24px;
+    filter: invert(100%);
+    /* filter: invert(44%) sepia(50%) saturate(4412%) hue-rotate(184deg) brightness(97%) contrast(91%); */
+}
+
+.main-header
+{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    height: 56px;
+    padding: 0 20px;
+    align-items: center;
+    border-bottom: var(--border);
+    box-sizing: border-box;
+}
+
+.main-header .title 
+{
+    font-size: 1.125rem;
+    color: white;
+}
+
+.create-album
+{
+    border-radius: 20px;
+    padding: 10px 13px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.create-album img 
+{
+    width: 18px;
+    filter: invert(100%);
+}
+
+.create-album div
+{
+    font-weight: 300;
+    color: white;
+}
+
+.create-album:hover
+{
+    cursor: pointer;
+    background-color: var(--bg-lighter);
+}
+
+.create-album:active
+{
+    transition-duration: 200ms;
+    background-color: var(--bg-dark);
+}
+
+.create-album-dialog
+{
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-lighter);
+    border: none;
+    box-shadow: 1px 3px 6px black;
+    border-radius: 10px;
+}
+
+.create-album-form
+{
+    display: flex;
+    flex-direction: column;
+    border-radius: inherit;
+}
+
+.form-album-name
+{
+    padding: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;  
+    border-width: 2px;
+    font-weight: 300;
+}
+
+.form-album-name::placeholder
+{
+    color: white;
+}
+.form-album-name:focus
+{
+    outline: none;
+}
+
+.buttons-row
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-album-form button 
+{
+    flex: 1 1 auto;
+    background-color: var(--bg-lighter);
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px;
+    border: none;
+    cursor: pointer;   
+    font-weight: 300;
+}
+.create-album-form button:first-child
+{
+    border-right: var(--border);
+    border-width: 2px;
+    border-bottom-left-radius: 10px;
+}
+.create-album-form button:last-child
+{
+    border-bottom-right-radius: 10px;
+}
+
+.create-album-form button:hover
+{
+    background-color: var(--bg-light);
+}
+
+.loader-line {
+    width: 100%;
+    height: 2px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.3);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.loader-line::before {
+    content: "";
+    position: absolute;
+    left: -50%;
+    height: 2px;
+    width: 40%;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+.loading-animation:before {
+    
+    background-color: coral;
+    -webkit-animation: lineAnim 1s linear infinite;
+    -moz-animation: lineAnim 1s linear infinite;
+    animation: lineAnim 1s linear infinite;
+    
+}
+
+.error-animation {
+    background-color: red;
+}
+
+@keyframes lineAnim {
+    0% {
+        left: -40%;
+    }
+    50% {
+        left: 20%;
+        width: 80%;
+    }
+    100% {
+        left: 100%;
+        width: 100%;
+    }
+}
+
+.albums-view
+{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    overflow-y: hidden;
+    gap: 20px;
+}
+.album 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition-duration: 0.2s;
+}
+
+.album-thumbnail
+{
+    aspect-ratio: 1;
+    background-color: var(--bg-dark);
+    border-radius: 15px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.album-details
+{
+    padding: 0 0 0 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.album-title
+{
+    font-weight: 300;
+    color: white;
+}
+
+.album-settings
+{
+    transform: translate(30%, 0);
+    height: 1rem;
+    filter: invert(100%);
+    transition-duration: 0.2s;
+
+}
+
+.album-settings:hover
+{
+    filter: invert(50%);
+    cursor: pointer;
+}
+ 
+.album:hover
+{
+    cursor: pointer;
+}
+.directory-selection-container
+{
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+.directory-selection
+{
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+    transition-duration: 0.2s;
+}
+
+.directory-selection:hover
+{
+    border-color: black;
+    background-color: var(--bg-light);
+    cursor: pointer;
+}
+
+.directory-selection div
+{
+    color: white;
+    font-weight: 300;
+}
+.directory-selection img
+{
+    height: 20px;
+}
