@@ -7,6 +7,7 @@ const crypto = require('crypto');
 const toml = await import('smol-toml')
 const isImage = require('is-image')
 const sharp = require('sharp')
+const {mkdirp} = require('mkdirp')
 
 const app = express();
 const port = 3000;
@@ -132,6 +133,13 @@ app.get('/api/albums/:id/:filename', (req, res)=>{
     const file_path = path.join(album.path, filename);
     if (!fs.existsSync(file_path)) {res.status(404).end(); return; }
 
+    const thumbnail_path = path.join(data_path, "album_thumbnails", id, `${filename}.webp`);
+    if (fs.existsSync(thumbnail_path))
+    {
+        res.type("image/webp").sendFile(thumbnail_path);
+        return;
+    }
+
     sharp(file_path)
     .metadata()
     .then((metadata)=>{
@@ -148,10 +156,10 @@ app.get('/api/albums/:id/:filename', (req, res)=>{
         .rotate()
         .toBuffer().then(data=>{
             res.type("image/webp").send(data);
-            // mkdirp(path.dirname(thumbnail_path)).then(made=>{
-            //     fs.writeFile(thumbnail_path, data, ()=>{});
-            // });
-        }).catch((err)=>{console.log("Failed to process jpeg", safe_path, err); res.status(404).end()});
+            mkdirp(path.dirname(thumbnail_path)).then(made=>{
+                fs.writeFile(thumbnail_path, data, ()=>{});
+            });
+        }).catch((err)=>{console.log("Failed to process jpeg", "err", err); res.status(404).end()});
     });
 
 })

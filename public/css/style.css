@@ -117,6 +117,17 @@ body {
     width: 256px;
 }
 
+@media screen and (max-width: 800px)
+{
+    .menu
+    {
+        width: auto;
+    }
+    .category div 
+    {
+        display: none;
+    }
+}
 main
 {
     flex: 1 1 auto;
@@ -128,7 +139,7 @@ main
 {
     box-sizing: border-box;
     padding-left: 24px;
-    padding: 8px 12px 8px 24px;
+    padding: 8px 24px 8px 24px;
     gap: 30px;
     width: 100%;
     display: flex;
