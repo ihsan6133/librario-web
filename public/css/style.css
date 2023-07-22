@@ -97,6 +97,19 @@ body {
     color: gainsboro;
 }
 
+@media (max-width:481px)  {
+    .header-flex {
+        justify-content: space-between;
+    }
+    .input-container {
+        background-color: transparent;
+        flex-grow: 0;
+    }
+    .input-container input {
+        display: none;
+    }
+}
+
 .main-container
 {
     flex: 1 1 auto;
@@ -117,7 +130,7 @@ body {
     width: 256px;
 }
 
-@media screen and (max-width: 800px)
+@media (max-width:641px)
 {
     .menu
     {
@@ -126,6 +139,12 @@ body {
     .category div 
     {
         display: none;
+    }
+}
+@media (max-width:481px) {
+    .menu 
+    {
+        display: none;    
     }
 }
 main
@@ -201,6 +220,13 @@ main
 {
     font-weight: 300;
     color: white;
+}
+
+@media (max-width:481px) {
+    .create-album div
+    {
+        display: none;    
+    }
 }
 
 .create-album:hover

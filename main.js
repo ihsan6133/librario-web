@@ -159,7 +159,9 @@ app.get('/api/albums/:id/:filename', (req, res)=>{
             mkdirp(path.dirname(thumbnail_path)).then(made=>{
                 fs.writeFile(thumbnail_path, data, ()=>{});
             });
-        }).catch((err)=>{console.log("Failed to process jpeg", "err", err); res.status(404).end()});
+        }).catch((err)=>{
+            res.status(404).end()
+        });
     });
 
 })
