@@ -1,0 +1,9 @@
+:root {
+    --bg-color: rgb(20, 20, 20);
+    --text-color: rgb(255, 255, 255);
+    --blue: rgb(12, 140, 233);
+    --bg-dark: rgb(20, 20, 20);
+    --bg-light: rgb(40, 40, 40);
+    --bg-lighter: rgb(60, 60, 60);
+    --border: 1px solid rgb(255,255,255, 0.3);
+}

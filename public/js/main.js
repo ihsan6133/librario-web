@@ -46,8 +46,10 @@ cancel_btn.addEventListener("click",(event)=>{
 });
 
 function generate_album(album, id) {
-    let container = document.createElement("div");
+    
+    let container = document.createElement("a");
     container.classList.add("album");
+    container.href = `/albums/${id}`;
 
     let thumbnail = document.createElement("div");
     thumbnail.classList.add("album-thumbnail");
@@ -62,6 +64,10 @@ function generate_album(album, id) {
     let settings = document.createElement("img");
     settings.classList.add("album-settings");
     settings.src = "/public/icons/three-dots-vertical.svg";
+    settings.onclick = (e)=>{
+        e.preventDefault();
+    }
+
 
     album_details.append(title, settings)
     container.append(thumbnail, album_details);
@@ -94,5 +100,6 @@ album_search_input.addEventListener("input", (event)=>{
         render_albums(album_search_input.value)
     }, 100);
 });
+
 
 render_albums(null);
