@@ -1,5 +1,5 @@
 {
-  "name": "librario",
+  "name": "librario-web",
   "version": "1.0.0",
   "description": "An application to manage your photos and videos",
   "main": "main.js",
